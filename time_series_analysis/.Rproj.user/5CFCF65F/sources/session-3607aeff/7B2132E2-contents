@@ -1,0 +1,5 @@
+# define global variables here
+data("CO2")
+
+CO2
+View(CO2)
