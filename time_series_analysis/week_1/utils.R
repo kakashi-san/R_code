@@ -64,3 +64,23 @@ generate_white_noise_ts <- function(
             frequency = freq)
         )
 }
+
+generate_ar_process <- function(
+    n_samples,
+    phi,
+    std
+    ) {
+    #' sample n observations from an AR process
+    #' with ar coefficient phi
+    #' and standard deviation std.
+    #' @param n_samples integer: number of observation samples
+    #' @param phi float: AR coefficient
+    #' @param std fload: standard deviation of the observational sample values
+        return(
+            arima.sim(
+                n = n_samples,
+                model = list(ar = phi),
+                sd = std
+                )
+            )
+    }
