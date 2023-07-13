@@ -14,7 +14,7 @@ phi2 <- -0.9 # ar coefficient
 #
 # sample data from an ar(1) with ar coefficient phi = 0.9 and variance 1
 #
-yt1 <- generate_ar_process(
+yt1 <- generate_ar1_process(
     n_samples = cap_t,
     phi = phi1,
     std = sd
@@ -23,7 +23,7 @@ yt1 <- generate_ar_process(
 # sample data from an ar(1) with ar coefficient phi = -0.9 and variance 1
 #
 
-yt2 <- generate_ar_process(
+yt2 <- generate_ar1_process(
     n_samples = cap_t,
     phi = phi2,
     std = sd

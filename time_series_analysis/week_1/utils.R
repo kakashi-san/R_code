@@ -65,7 +65,7 @@ generate_white_noise_ts <- function(
         )
 }
 
-generate_ar_process <- function(
+generate_ar1_process <- function(
     n_samples,
     phi,
     std
