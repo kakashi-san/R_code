@@ -10,6 +10,13 @@ import::from(
     "./time_series_analysis/week_1/utils.R",
     generate_ar1_process
     )
+import::from(
+  "./time_series_analysis/week_1/utils.R",
+  linear_regress
+)
+library(matlib)
+
+
 # define config parameters here
 seed <- 2021
 
@@ -23,10 +30,26 @@ v <- 1 # innovation variance
 # simulated AR 1 process data.
 set.seed(seed)
 std <- sqrt(v) # innovation standard deviation
-sim_ar1_data <- generate_ar1_process(
+simulated_ar1_data <- generate_ar1_process(
     n_samples = n_time_pts,
     phi = phi,
     std = std
 )
 
-print(sim_ar1_data)
+print("simulating output observerd data points")
+y_op <-  as.matrix(
+  simulated_ar1_data[2:n_time_pts]
+  )
+
+x_ip <- as.matrix(
+  simulated_ar1_data[1:n_time_pts - 1]
+  )
+
+print("simulated output vector: ")
+beta <- c(phi)
+e_v <- v
+lr_op <- linear_regress(
+    y_observed = y_op,
+    x = x_ip,
+    beta = e_v
+)

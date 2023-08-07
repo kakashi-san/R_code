@@ -1,3 +1,5 @@
+library(matlib)
+
 check_even <- function(num) {
     #' checks if the integer is even or odd.
     #' @param num integer integer value to be checked for even/odd.
@@ -83,4 +85,51 @@ generate_ar1_process <- function(
                 sd = std
                 )
             )
+    }
+
+matrix_prod <- function(a, b) return(a %*% b)
+
+
+linear_regress <- function(
+    y_observed,
+    x,
+    beta,
+    e
+    ) {
+    # linear regression of the form:
+    # y = x Beta + E
+    #'   @param y_observed : observed data points; n data points
+    #' : n * 1 dimensions.
+    #'   @param x : n k-dimensional explanatory data points; n * k matrix.
+    #'   @param beta : regression coefficients; k * 1 dimensions.
+    #'   @param e : n-dimensional error vectors: N(0, v); n * 1 dimensions.
+    print(
+      cat("Gauging from the shape of y_observed:
+          there's",
+          dim(y_observed)[1],
+          "number of data points",
+          sep = ""
+          )
+      )
+    # beta_mle <- matrix_prod(
+    #     matrix_prod(
+    #         inv(
+    #             matrix_prod(t(x), x )
+    #             ),
+    #         t(x)
+    #         ), y_observed)
+    # t_1 <-  y_observed - matrix_prod(x, beta_mle)
+
+    # v_mle <- matrix_prod(
+    #     inv(t_1), t_1
+    #     ) / len(y_observed)
+
+    # return(
+    #     list(
+    #         beta_mle,
+    #         v_mle
+    #         )
+    # )
+    # }
+    return(1)
     }
